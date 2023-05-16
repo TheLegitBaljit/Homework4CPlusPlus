@@ -9,10 +9,11 @@ public:
     Point place;
     int hit_pts;
     std::string name;
-
+    bool inTeam;
+    int type;
     //Constructors
     Character();
-    Character(Point place, int hit_pts, std::string name);
+    Character(const Point &place, int hit_pts, std::string name);
 
     virtual bool isAlive();
     virtual double distance(Character *other);
@@ -21,6 +22,7 @@ public:
     virtual std::string getName();
     virtual Point getLocation();
     virtual std::string print();
+    virtual ~Character() = default;
 };
 
 

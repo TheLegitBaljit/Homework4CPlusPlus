@@ -8,10 +8,11 @@ class Ninja : public Character{
 public:
     int speed;
 
-    Ninja(std::string name,int hit_pts,Point place,int speed);
-    virtual void move(Character *enemy);
-    virtual void slash(Character *enemy);
-
+    Ninja();
+    Ninja(std::string name,Point place,int hit_pts,int speed);
+    void move(Character *enemy);
+    void slash(Character *enemy);
+    std::string print();
 };
 
 

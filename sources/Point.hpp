@@ -19,10 +19,10 @@ public:
     void print();
     double getX();
     double getY();
-    bool operator==(const Point&other) const;
+    static Point moveTowards(const Point& source, const Point& destination, double distance);
 };
 
-Point moveTowards(const Point& source, const Point& destination, double distance);
+
 
 
 #endif //COWBOY_VS_NINJA_A_MAIN_POINT_H

@@ -11,7 +11,10 @@ class Team2 : public Team {
 public:
     Team2();
     Team2(Character *leader);
-    ~Team2();
+//    ~Team2();
+    void print() override;
+    Character* getClosest(Team *enemy) override;
+    void attack(Team *enemy_team) override;
 };
 
 

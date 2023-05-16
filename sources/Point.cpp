@@ -19,25 +19,22 @@ void Point::print() {
     std::cout << "(" << this->x_val << "," << this->y_val << ")";
 }
 
-Point moveTowards(const Point &src ,const Point &destination, double distance) {
-    if (distance < 0) {
-        throw std::invalid_argument("Distance cannot be negative");
+Point Point::moveTowards(const Point &_p1, const Point &_p2, double dist) {
+    if(dist < 0)
+        throw std::invalid_argument("Cannot move negative distance");
+    double distance = _p1.distance(_p2);
+    if (distance <= dist) {
+        return _p2;
     }
-    double dist = src.distance(destination);
-    if (dist <= distance)
-        return destination;
-    double src_between = distance;
-    double between_destination = dist - distance;
-    double x_new = (between_destination * src.x_val + src_between * destination.x_val)/dist;
-    double y_new = (between_destination * src.y_val + src_between * destination.y_val)/dist;
-    return Point(x_new,y_new);
+    double distx = _p2.x_val - _p1.x_val;
+    double disty = _p2.y_val - _p1.y_val;
+    double factor = dist / distance;
+    double new_X = _p1.x_val + distx * factor;
+    double new_Y = _p1.y_val + disty * factor;
+
+    return Point(new_X, new_Y);
 }
 
-
-bool Point::operator==(const Point& other) const {
-    double tolerance = 0.00001;
-    return std::abs(x_val - other.x_val) < tolerance && std::abs(y_val - other.y_val) < tolerance;
-}
 double Point::getX() {
     return this->x_val;
 }

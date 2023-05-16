@@ -1,4 +1,4 @@
 #include "OldNinja.hpp"
 
 
-OldNinja::OldNinja(std::string name, Point place) : Ninja(name,150,place,14){}
+OldNinja::OldNinja(std::string name, Point place) : Ninja(name,place,150,8){}

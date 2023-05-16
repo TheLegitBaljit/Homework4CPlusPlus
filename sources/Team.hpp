@@ -17,11 +17,13 @@ public:
 
     Team();
     Team(Character *leader);
-    virtual ~Team();
-    virtual void add(Character *character);
+    virtual ~Team () {
+        for (size_t i = 0; i < warriors.size(); i++) { delete warriors.at(i); }
+    }    void add(Character *character);
     virtual void attack(Team *enemy_team);
-    virtual int stillAlive();
+    int stillAlive();
     virtual void print();
+    virtual Character* getClosest(Team *enemy_team);
 };
 
 
