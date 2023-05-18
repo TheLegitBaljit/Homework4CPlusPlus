@@ -42,7 +42,7 @@ std::string Cowboy::print()
     string res = "";
     res += "C (" + this->getName() + ")";
     if(this->isAlive() == true)
-        res += this->getHitPoints();
+        res += to_string(this->getHitPoints());
     res += " (" + to_string(this->getLocation().getX()) + "," + to_string(this->getLocation().getY()) + ")";
     return res;
 }
